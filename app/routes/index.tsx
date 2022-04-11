@@ -24,6 +24,10 @@ export default function Index() {
                 Check the README.md file for instructions on how to get this
                 project deployed.
               </p>
+              <p className="mx-auto mt-6 max-w-lg text-center text-xl text-yellow-200 sm:max-w-3xl">
+                Check the README.md file for instructions on how to get this
+                project deployed.
+              </p>
               <div className="mx-auto mt-10 max-w-sm sm:flex sm:max-w-none sm:justify-center"></div>
               <a href="https://remix.run">
                 <img
