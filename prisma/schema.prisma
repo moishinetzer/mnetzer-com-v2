@@ -36,3 +36,9 @@ model Note {
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade, onUpdate: Cascade)
   userId String
 }
+
+model ColorVote {
+  id    String @id @default(cuid())
+  color String @unique
+  votes Int    @default(0)
+}
