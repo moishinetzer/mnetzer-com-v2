@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-// import { Transition } from "@headlessui/react";
 import github from "~/static/github.png";
 import linkedin from "~/static/linkedin.png";
 import gmail from "~/static/gmail.png";
@@ -10,8 +9,6 @@ import ClearButton from "./ClearButton";
 import ThumbsUp from "./ThumbsUp";
 
 export default function App() {
-  // @ts#5328-check
-
   // State
   var [firstBg, setFirstBg] = useState("to-gray-700");
   var [secondBg, setSecondBg] = useState("to-gray-700");
@@ -19,17 +16,6 @@ export default function App() {
   var [canVote, setCanVote] = useState(true);
 
   var bgFunctions = { setFirstBg, setSecondBg, currentBg, setCurrentBg };
-
-  // Firebase Setups
-  // useEffect(() => {
-  //   const colors = ["red", "yellow", "blue", "green"];
-  //   if (auth.currentUser || colors.includes(localStorage.mnVoteColor)) {
-  //     setCanVote(false);
-  //   } else {
-  //     auth.signInAnonymously();
-  //   }
-  //   firebase.analytics();
-  // }, [auth]);
 
   return (
     <>
@@ -82,7 +68,7 @@ export default function App() {
           </div>
 
           {/* Center words */}
-          <p className="mt-16 select-text bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-4xl text-transparent sm:mt-20 sm:text-7xl">
+          <p className="mt-16 select-none bg-gradient-to-l from-blue-400 to-red-400 bg-clip-text text-4xl text-transparent sm:mt-20 sm:text-7xl">
             Moishi Netzer
           </p>
           <p className="bg-gradient-to-l from-gray-400 to-gray-200 bg-clip-text p-7 text-2xl font-normal italic text-transparent opacity-40 sm:p-9 sm:text-5xl">
