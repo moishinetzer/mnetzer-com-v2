@@ -8,25 +8,25 @@ import {
 export const action: ActionFunction = async ({ request }) => {
   const formData = await request.formData();
   const color = formData.get("color");
-  const votedColor = formData.get("votedColor");
+  const option = formData.get("option");
   invariant(
     typeof color === "string" && color.length !== 0,
     "color is required"
   );
   invariant(
-    votedColor === "" || votedColor === color,
-    "Can't vote on non chosen color"
+    option === "increment" || option === "decrement",
+    "Option must be either increment or decrement"
   );
 
-  console.log(color, votedColor);
+  console.log(color, option);
 
-  if (color === votedColor) {
-    await decrementColorVote({ color });
-    console.log("decrement");
-    return json({});
-  } else {
+  if (option === "increment") {
     await incrementColorVote({ color });
     console.log("increment");
+    return json({});
+  } else {
+    await decrementColorVote({ color });
+    console.log("decrement");
     return json({});
   }
 };
