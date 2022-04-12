@@ -85,10 +85,22 @@ export default function App() {
               <span>{color.color}</span>
               <span>{color.votes}</span>
             </div>
-            <fetcher.Form method="post" action="/actions/toggleVote">
+            <fetcher.Form
+              method="post"
+              action="/actions/toggleVote"
+              className={clsx({
+                "pointer-events-none":
+                  votedColor !== color.color && votedColor !== "",
+              })}
+            >
               <input type="hidden" name="color" value={color.color} />
               <input type="hidden" name="votedColor" value={votedColor} />
-              <button type="submit" className="">
+              <button
+                type="submit"
+                onClick={() => {
+                  !votedColor ? setVotedColor(color.color) : setVotedColor("");
+                }}
+              >
                 <ThumbUpIcon
                   className={clsx(
                     "h-8 w-8 stroke-current pb-1 text-gray-500 transition-opacity duration-150 ease-out hover:opacity-60 sm:h-10 sm:w-10 sm:pb-0"
